@@ -223,7 +223,7 @@
             <!--- HEAD ----->
             <?php if ($this->aauth->get_user()->roleid == 5) { ?>
                 <li class="navigation-header"><span
-                            data-i18n="nav.category.support">Cobranza</span><i
+                            data-i18n="nav.category.support">collection</span><i
                             data-toggle="tooltip"
                             data-placement="right"
                             data-original-title="Sales"
@@ -382,16 +382,16 @@
                     echo ' open';
                 } ?>">
                     <a href=""> <i class="icon-group"></i><span
-                                class="menu-title"> <?php echo $this->lang->line('') ?>Usuarios</span><i
+                                class="menu-title"> <?php echo $this->lang->line('') ?>Users</span><i
                                 class="fa arrow"></i> </a>
                     <!---ADMINISTRADOR DE USUARIOS--->
                     
                     <ul class="menu-content">
                         <li>
-                            <a href="<?php echo base_url(); ?>customers/create"><?php echo $this->lang->line('') ?>Nuevo Usuario</a>
+                            <a href="<?php echo base_url(); ?>customers/create"><?php echo $this->lang->line('') ?>New user</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>customers"><?php echo $this->lang->line('') ?>Administrar Usuarios</a>
+                            <a href="<?php echo base_url(); ?>customers"><?php echo $this->lang->line('') ?>Manage Users</a>
                         <li>
                             <a href="<?php echo base_url(); ?>clientgroup"><?php echo $this->lang->line('Manage Groups') ?></a>
                         </li>
@@ -406,7 +406,7 @@
                                 class="fa arrow"></i> </a>
                     <ul class="menu-content">
                         <li>
-                            <a href="<?php echo base_url(); ?>quote/create"><?php echo $this->lang->line(''); ?>Nuevo ticket</a>
+                            <a href="<?php echo base_url(); ?>quote/create"><?php echo $this->lang->line(''); ?>new ticket</a>
                         </li>                        
                         <li>
                             <a href="<?php echo base_url(); ?>tickets"><?php echo $this->lang->line('Manage Tickets') ?></a>
@@ -421,7 +421,7 @@
                     echo ' open';
                 } ?>">
                     <a href=""> <i class="icon-sitemap"></i><span
-                                class="menu-title">Moviles</span><i
+                                class="menu-title">Mobile</span><i
                                 class="fa arrow"></i> </a>
                     <ul class="menu-content">
                         <li>
@@ -836,13 +836,13 @@
             <?php } ?>
 
             
-            <!---------- MENU ADMINISTRACION----->
+            <!---------- MENU ADMINISTRACION roll 4----->
 
 
               <!--- HEAD ----->
             <?php if ($this->aauth->get_user()->roleid == 4) { ?>
                 <li class="navigation-header"><span
-                            data-i18n="nav.category.support">Cobranza</span><i
+                            data-i18n="nav.category.support">collection</span><i
                             data-toggle="tooltip"
                             data-placement="right"
                             data-original-title="Sales"
@@ -858,9 +858,9 @@
                         
                     <i class="icon-arrow"></i></span></a>
                     <ul class="menu-content">
-                        <li>
+                      <!-- <li>
                             <a href="<?php echo base_url(); ?>invoices/apertura">Apertura</a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="<?php echo base_url(); ?>invoices/create"><?php echo $this->lang->line('New Invoice'); ?></a>
                         </li>
@@ -869,11 +869,11 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url(); ?>reports/cierre">Cierre</a>
+                            <a href="<?php echo base_url(); ?>reports/cierre">Closing</a>
                         </li>
-                        <li>
+                       <!-- <li>
                             <a href="<?php echo base_url(); ?>invoices/generar_facturas">Generar Facturas</a>
-                        </li>
+                        </li>-->
                         
                     </ul>
                 </li>
@@ -912,16 +912,16 @@
                     echo ' open';
                 } ?>">
                     <a href=""> <i class="icon-group"></i><span
-                                class="menu-title"> <?php echo $this->lang->line('') ?>Usuarios</span><i
+                                class="menu-title"> <?php echo $this->lang->line('') ?>Users</span><i
                                 class="fa arrow"></i> </a>
 
 
                     <ul class="menu-content">
                         <li>
-                            <a href="<?php echo base_url(); ?>customers/create"><?php echo $this->lang->line('') ?>Nuevo Usuario</a>
+                            <a href="<?php echo base_url(); ?>customers/create"><?php echo $this->lang->line('') ?>New user</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>customers"><?php echo $this->lang->line('') ?>Administrar Usuarios</a>
+                            <a href="<?php echo base_url(); ?>customers"><?php echo $this->lang->line('') ?>Manage Users</a>
                         <li>
                             <a href="<?php echo base_url(); ?>clientgroup"><?php echo $this->lang->line('Manage Groups') ?></a>
                         </li>
@@ -936,7 +936,7 @@
                                 class="fa arrow"></i> </a>
                     <ul class="menu-content">
                         <li>
-                            <a href="<?php echo base_url(); ?>quote/create"><?php echo $this->lang->line(''); ?>Nuevo Orden</a>
+                            <a href="<?php echo base_url(); ?>quote/create"><?php echo $this->lang->line(''); ?>New order</a>
                         </li>                        
                         <li>
                             <a href="<?php echo base_url(); ?>tickets"><?php echo $this->lang->line('Manage Tickets') ?></a>
@@ -956,7 +956,7 @@
                     echo ' open';
                 } ?>">
                     <a href=""> <i class="icon-exchange"></i><span
-                                class="menu-title"> <?php echo $this->lang->line('') ?>Tesoreria</span><i
+                                class="menu-title"> <?php echo $this->lang->line('') ?>Treasury</span><i
                                 class="fa arrow"></i> </a>
                     <ul class="menu-content">
                         <li>
@@ -978,7 +978,7 @@
                             <a href="<?php echo base_url(); ?>transactions/expense"><?php echo $this->lang->line('Expense') ?></a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>transactions/transferencia">Transferencias</a>
+                            <a href="<?php echo base_url(); ?>transactions/transferencia">Transfers</a>
                         </li>
 
                     </ul>
