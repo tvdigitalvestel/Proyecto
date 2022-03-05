@@ -431,7 +431,7 @@
                             <hr>
                             <div class="row m-t-lg">
                                 <div class="col-md-2">
-                                    <strong><?php echo $this->lang->line('') ?>Barrio:</strong>
+                                    <strong><?php echo $this->lang->line('') ?>Zid Code:</strong>
                                 </div>
                                 <div class="col-md-10">
                                     <?php echo $barrio['barrio'] ?>
@@ -522,13 +522,13 @@
                                                 class="icon-user"></i> Cambio Titular </a>
 
                                 </div>
-								<div class="col-md-4" style="margin-top: 5px;">
+							<!---	<div class="col-md-4" style="margin-top: 5px;">
 
                                     <a href="<?php echo base_url('llamadas/index?id=' . $details['id']) ?>"
                                        class="btn btn-success btn-lg" style="width: 250px"><i
                                                 class="icon-mobile-phone"></i> Ate. Usuario</a>
 
-                                </div>
+                                </div>--->
                               <!-- <div class="col-md-4" style="margin-top: 5px;">
 
                                     <a href="<?php echo base_url('facturasElectronicas?id=' . $details['id']) ?>"

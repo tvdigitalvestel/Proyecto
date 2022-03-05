@@ -232,7 +232,7 @@ $fcontrato = $details['f_contrato'];
     <tr>
 		
       <td style="width: 15%"><img src="<?php echo FCPATH . 'userfiles/company/qr_vestel.png'?>" style="float: left"></img></td>
-      <td align="left" style="width: 30%"><br><br><br><br><h1>VESTEL S.A.S</h1></td>
+      <td align="left" style="width: 30%"><br><br><br><br><h1>Poner nombre del edificio</h1></td>
       
     </tr>
     <tr>

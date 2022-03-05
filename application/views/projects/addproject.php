@@ -35,15 +35,15 @@
 
                     <div class="col-sm-4">
                         <select name="status" class="form-control">
-                           <?php echo" <option value='Waiting'>".$this->lang->line('Waiting')."</option>
-                            <option value='Pending'>".$this->lang->line('Pending')."</option>
-                            <option value='Finished'>".$this->lang->line('Finished')."</option>
-                            <option value='Progress'>".$this->lang->line('Progress')."</option>"; ?>
+                           <?php echo" <option value='Waiting'>".$this->lang->line('')."</option>
+                            <option value='Pending'>".$this->lang->line('Formulation')."</option>
+                            <option value='Finished'>".$this->lang->line('Execution')."</option>
+                            <option value='Progress'>".$this->lang->line('Finished')."</option>"; ?>
                         </select>
                     </div>
                 </div>
 
-                <div class="form-group row">
+                 <!--<div class="form-group row">
 
                     <label class="col-sm-2 col-form-label" for="progress"><?php echo $this->lang->line('Progress') ?>
                         (in %)</label>
@@ -53,7 +53,7 @@
                         <p><span id="prog"></span></p>
 
                     </div>
-                </div>
+                </div>-->
 
                 <div class="form-group row">
 
@@ -62,7 +62,8 @@
 
                     <div class="col-sm-4">
                         <select name="priority" class="form-control">
-                            <option value='Low'>Baja</option>
+                             <option value='Low'></option>
+                            <option value='Low'>Bajo</option>
                             <option value='Medium'>Media</option>
                             <option value='High'>Alta</option>
                             <option value='Urgent'>Urgente</option>
@@ -73,11 +74,19 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label"
-                           for="pay_cat"><?php echo $this->lang->line('Customer') ?></label>
+                           for="pay_cat"><?php echo $this->lang->line('Edifice') ?></label>
 
                     <div class="col-sm-10">
                         <select name="customer" class="form-control" id="customer_statement">
+                           <?php
+                            foreach ($emp as $row) {
+                                $cid = $row['id'];
+                                $title = $row['username'];
+                                echo "<option value='$cid'>$title</option>";
+                            }
+                            ?>
                             <option value="0"><?php echo $this->lang->line('Select Customer') ?></option>
+
 
                         </select>
 
@@ -85,7 +94,7 @@
                     </div>
 
                 </div>
-                <div class="form-group row">
+               <!-- <div class="form-group row">
 
                     <label class="col-sm-2 col-form-label"
                            for="name"><?php echo $this->lang->line('Customer Can View') ?></label>
@@ -96,8 +105,8 @@
                             <option value='false'>No</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-group row">
+                </div>-->
+               <!-- <div class="form-group row">
 
                     <label class="col-sm-2 col-form-label"
                            for="name"><?php echo $this->lang->line('Customer Can Comment') ?></label>
@@ -108,7 +117,7 @@
                             <option value='false'>No</option>
                         </select>
                     </div>
-                </div>
+                </div>-->
                 <div class="form-group row">
 
                     <label class="col-sm-2 col-form-label" for="worth"><?php echo $this->lang->line('Budget') ?></label>
@@ -175,7 +184,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+               <!-- <div class="form-group row">
 
                     <label class="col-sm-2 col-form-label"
                            for="name">Link to calendar</label>
@@ -187,7 +196,7 @@
                             <option value='2'>Marcar fecha inicia y finaliza</option>
                         </select>
                     </div>
-                </div>
+                </div>-->
 
                 <div id="hidden_div" class="row form-group" style="display: none">
                     <label class="col-md-2 control-label" for="color">Color</label>

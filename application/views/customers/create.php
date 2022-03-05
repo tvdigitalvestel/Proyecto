@@ -196,7 +196,7 @@
                         </div>
 						<div class="col-sm-6">
                             <h6><label class="col-form-label"
-                               for="barrio"><?php echo $this->lang->line('') ?>Barrio</label></h6>
+                               for="barrio"><?php echo $this->lang->line('') ?>Zip Code</label></h6>
 						    <div id="barrios">
 								<select id="cmbBarrios" class="selectpicker form-control" name="barrio">
                                 <option value="0">-</option>

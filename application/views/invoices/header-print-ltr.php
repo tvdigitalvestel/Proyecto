@@ -5,12 +5,16 @@
 
             </td>
             <td class="myw">
+
 			<table class="top_sum">
+
+                <br>
+               
                  <tr>
-                       <td colspan="1" class="t_center"><h2 ><?php echo $this->config->item('ctitle') ?></h2><br></td>
+                     <td colspan="1" class="t_center"><h2 ><?php echo $refer_title ?></h2><br></td>
                     </tr>
 			<tr>
-            <td class="t_center"><?php echo $this->config->item('address') ?></td>
+            <td class="t_center"></td>
 			</tr>
 		    <!--<tr>
             <td class="t_center">Nit: <?php echo $this->config->item('postbox') ?></td>

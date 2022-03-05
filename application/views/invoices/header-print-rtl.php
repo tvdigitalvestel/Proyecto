@@ -12,7 +12,7 @@
                        <td colspan="1" class="t_center"><h2 ><?php echo $this->lang->line('Invoice') ?></h2><br><br></td>
                     </tr>
 			<tr>
-            <td><?php echo $this->lang->line('Invoice') ?></td><td><?php echo $this->config->item('prefix') . ' #' . $invoice['tid'] ?></td>
+            <td><?php echo $this->lang->line('Invoice') ?></td><td><?php echo $this->config->item('prefix') . ' #' . $invoice['tid'] ?></td> 
 			</tr>
 			<tr>
             <td><?php echo $this->lang->line('Invoice Date') ?></td><td><?php echo dateformat($invoice['invoicedate']) ?></td>

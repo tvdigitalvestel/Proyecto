@@ -453,8 +453,8 @@
                         class="fa fa-envelope"></i>Enviar mensajes de Grupo</a>
 
 			<a href="#" onclick="redirect_to_export()" class="btn btn-success btn-md">Exportar a Excel .XLSX</a>
-<a href=""  class="btn btn-danger btn-md" onclick="abrir_modal_corte_usuarios(event)"><i
-                        class="fa fa-envelope"></i>Cortar Usuarios</a>
+<!-- <a href=""  class="btn btn-danger btn-md" onclick="abrir_modal_corte_usuarios(event)"><i
+                        class="fa fa-envelope"></i>Cortar Usuarios</a>-->
             <hr>
             <table id="fclientstable" class="table-striped" cellspacing="0" width="100%">
                 <thead>
@@ -467,7 +467,7 @@
 					<th>Celular</th>
                     <th><?php echo $this->lang->line('Address') ?></th>
                     <th>Barrio</th>
-                    <th>Serv. Suscritos</th>
+                   <!-- <th>Serv. Suscritos</th>-->
 					<th id="despues_de_thead">Estado</th>
                     <th><?php echo $this->lang->line('Settings') ?></th>
 					<?php if ($this->aauth->get_user()->roleid > 4) { ?>
@@ -483,13 +483,13 @@
                 <tr >
                     <th>SMS</th>
                     <th>#</th>
-					<th>Abonado</th>
+					<th>Zid Codigo</th>
 					<th>Cedula</th>
                     <th><?php echo $this->lang->line('Name') ?></th>
 					<th>Celular</th>
                     <th><?php echo $this->lang->line('Address') ?></th>
                     <th>Barrio</th>
-                    <th>Serv. Suscritos</th>
+                   <!-- <th>Serv. Suscritos</th>-->
 					<th id="despues_de_tfoot">Estado</th>
                     <th><?php echo $this->lang->line('Settings') ?></th>
 					<?php if ($this->aauth->get_user()->roleid > 4) { ?>

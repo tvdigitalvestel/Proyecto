@@ -683,3 +683,8 @@ $lang['Rent']="Rent";
 $lang['Partial rent']="Partial rent";
 $lang['Deposit']="Deposit";
 $lang['Debt']="Debt";
+$lang['Formulation']="Formulation";
+$lang['Execution']="Execution";
+$lang['Finished']="Finished";
+$lang['Edifice']="Edifice";
+

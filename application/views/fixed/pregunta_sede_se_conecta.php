@@ -5,10 +5,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
 				<h3 align="center">BIENVENIDO</h3>
-                <h4 class="modal-title" align="center">Vestel trabaja con lógica, ética y estética</h4>
+                <h4 class="modal-title" align="center">Aqui trabajamos con lógica, ética y estética</h4>
             </div>
             <div class="modal-body">
-                <p>¿Desde que sede estas accediendo? </p>
+                <p>¿A que edificio quieres acceder? </p>
                 <div class="col-sm-9">
                     
                         <select name="sede_accede" class="form-control" id="sede_accede">

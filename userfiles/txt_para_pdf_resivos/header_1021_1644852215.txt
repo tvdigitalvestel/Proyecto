@@ -1,0 +1,38 @@
+<table>
+        <tr>
+            
+            <td>
+
+            </td>
+            <td class="myw">
+			<table class="top_sum">
+                 <tr>
+                       <td colspan="1" class="t_center"><h2 >Blanco portafolio 262, LLC</h2><br></td>
+                    </tr>
+			<tr>
+            <td class="t_center"></td>
+			</tr>
+		    <!--<tr>
+            <td class="t_center">Nit: </td>
+			</tr>-->
+			<!--<tr>
+            <td class="t_center"></td>
+			</tr> -->
+						<!--<tr>
+            <td class="t_center">Sede: 10</td>
+			</tr>-->
+			
+				
+			           
+          
+
+			<tr>
+				<td class="t_center">02/14/2022 10:23 am</td>
+			</tr>
+						</table>
+
+
+
+            </td>
+        </tr>
+    </table><br>

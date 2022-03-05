@@ -941,7 +941,7 @@ var_dump("aqui2");*/
 					
                 $data2['id_invoice']=$invocieno;
 				$data2['id_factura']=null;
-                $this->db->insert('tickets',$data2);
+               // $this->db->insert('tickets',$data2);
 				//actualizar estado usuario
 				$this->db->set('usu_estado', 'Activo');
         		$this->db->where('id', $customer_id);
@@ -1314,6 +1314,11 @@ function eliminar_resivos_de_pago(){
  
         $transaccion = $this->db->order_by("id","DESC")->get_where("transactions",array("tid"=>$data['invoice']['tid'],"estado"=>null))->result_array();
         $data['concept']=$transaccion[0]['concept'];
+        
+      //se pasa el titulo del encabezado del pdf
+
+        $varx=$this->db->get_where("customers_group",array("id"=>$data['invoice']['refer']))->row();
+        $data['refer_title']=$varx->title;
         $html = $this->load->view('invoices/view-print-'.LTR, $data, true);
         $html2 = $this->load->view('invoices/header-print-'.LTR, $data, true);
 
