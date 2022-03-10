@@ -723,7 +723,7 @@ var_dump("aqui2");*/
         $discountFormat = $this->input->post('discountFormat');
         $pterms = $this->input->post('pterms');
         $currency = $this->input->post('mcurrency');
-
+        $varx="";
         $i = 0;
         if ($discountFormat == '0') {
             $discstatus = 0;
@@ -750,6 +750,7 @@ var_dump("aqui2");*/
             foreach ($pid as $key => $value) {
 
                 $product_id = $this->input->post('pid');
+                $varx=$product_id;
                 $product_name1 = $this->input->post('product_name');
                 $product_qty = $this->input->post('product_qty');
                 $product_price = $this->input->post('product_price');
@@ -900,7 +901,7 @@ var_dump("aqui2");*/
 			'refer' => $refer, 
 			'term' => '', 
 			'multi' => $currency, 
-			'television' => '', 
+			'television' => $varx[0], 
 			'combo' => '',
 			'puntos' => '',
 			'ron' => $estado,

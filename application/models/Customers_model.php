@@ -2023,6 +2023,17 @@ return $str;
 }';
 return $str;
     }
+// funcion para cargar el valor de la mensualidad en el perfil del usuario
+public function get_valor_mensualidad($id_customer){
+    $x=$this->db->query("select * from invoices where csd=".$id_customer." order by tid desc")->result_array();
+    $prod=0;
+    
+    if(isset($x[0]['television']) && $x[0]['television']!="" && $x[0]['television']!=null){
+        $x1=$this->db->get_where("products",array("pid"=>$x[0]['television']))->row();
+        $prod=$x1->product_price;
+    }
+    return $prod;
+}
 
     public function calculoParaFacturaElectronica($valor_sin_iva){
         $iva=19;

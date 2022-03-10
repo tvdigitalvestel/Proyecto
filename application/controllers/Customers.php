@@ -324,6 +324,8 @@ class Customers extends CI_Controller
 		$data['facturalist'] = $this->ticket->factura_list($custid);
 		$data['attach'] = $this->customers->attach($custid);
         $data['validar_firma']=$this->customers->validar_firma($custid);
+        $data['valor_menusualidad']=$this->customers->get_valor_mensualidad($custid); //se agrego para el valor de la mensualidad
+        
         //$data['estado_mikrotik']=$this->customers->get_estado_mikrotik($data['details']['name_s'],$data['details']['gid'],$data['details']['tegnologia_instalacion']);        
         $this->customers->actualizar_debit_y_credit($custid);
         if($data['servicios']['estado_combo']=="Cortado"){

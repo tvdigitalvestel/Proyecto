@@ -186,15 +186,8 @@
                                                 
                                               <div class="form-group">
                                                   <select id="estado_multiple" name="estado_multiple[]" class="form-control select-box" multiple="multiple">
-														<option value='Activo'>Activos </option>
-														<option value='Cortado'>Cortados</option>
-														<option value='Suspendido'>Suspendidos</option>
-														<option value='Instalar'>Instalar</option>
-														<option value='Exonerado'>Exonerado</option>
-														<option value='Cartera'>Cartera</option>
-														<option value='Compromiso'>Compromiso</option>
-														<option value='Retirado'>Retirado</option>
-														<option value='Depurado'>Depurado</option>
+														<option value='Activo'>Activos </option>						 <option value='Retirado'>Inactivos</option>
+														
                                                     </select>
                                               </div>
                                         </div>
@@ -211,9 +204,8 @@
                                             <div class="col-sm-6">
                                                 <select name="trans_type" class="form-control" id="sel_servicios">
                                                     <option value=''>Todos</option>
-                                                    <option value='Internet'>Internet</option>
-                                                    <option value='TV'>TV</option>
-                                                    <option value='Combo'>Combo</option>
+                                                    <option value='Internet'>Renta</option>
+                                                    
                                                 </select>
                                             </div>                              
                                             <input type="checkbox" class="cl-ck-f-electronicas" id="check1" name="individual_service" style="cursor:pointer;" ><b onclick="ckekar_1()" style="cursor: pointer;"><i  >&nbsp; Individualizar Servicio</i></b><br>
@@ -460,13 +452,13 @@
                 <thead>
                 <tr >
                     <th><input type="checkbox" <?= ($cuenta!=0) ? 'checked':'' ?>  name="" style="cursor: pointer;" onclick="selet_all_customers(this)">&nbspSMS</th>
-                    <th>#</th>
+                    <th>N Apartamento</th>
 					<th>Abonado</th>
-					<th>Cedula</th>
+					<th>ID</th>
                     <th><?php echo $this->lang->line('Name') ?></th>
 					<th>Celular</th>
                     <th><?php echo $this->lang->line('Address') ?></th>
-                    <th>Barrio</th>
+                    <th>Zid Codigo</th>
                    <!-- <th>Serv. Suscritos</th>-->
 					<th id="despues_de_thead">Estado</th>
                     <th><?php echo $this->lang->line('Settings') ?></th>

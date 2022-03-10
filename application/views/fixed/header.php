@@ -187,6 +187,7 @@
     <!-- main menu header-->
     <div class="main-menu-header">
         <div>
+            <?php /* ?>
             <div class="dropdown profile-element"> <span>
                             <img alt="image" class="img-circle "
                                  src="<?php echo base_url('userfiles/employee/' . $this->aauth->get_user()->picture) ?>">
@@ -206,20 +207,21 @@
                     </li>
                 </ul>
             </div>
-
+            <?php */ ?>
         </div>
     </div>
     <!-- / main menu header-->
     <!-- main menu content inicio 5-->
     <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-
+            <?php /* ?>
             <li class="nav-item <?php if ($this->uri->segment(1) == "dashboard") {
                 echo 'active';
             } ?>">
                 <a href="<?php echo base_url(); ?>dashboard/"> <i class="icon-dashboard"></i><span
                             class="menu-title"> <?php echo $this->lang->line('Dashboard') ?></span></a>
             </li>
+            <?php */ ?>
             <!--- HEAD ----->
             <?php if ($this->aauth->get_user()->roleid == 5) { ?>
                 <li class="navigation-header"><span
@@ -1091,4 +1093,10 @@
     <!-- main menu footer-->
     <div id="rough"></div>
 </div>
-<!-- / main menu-->
+<!-- / main menu  se quita el activo y el espacio en la plantilla-->
+
+<script type="text/javascript">
+
+    var a =$( 'a[href*="'+baseurl+'settings/activate"]' );
+    $(a[0]).parent().remove();
+</script>

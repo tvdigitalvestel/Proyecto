@@ -89,8 +89,11 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12">
-                                    <h3><?php echo $this->lang->line('Balance') ?></h3>
-                                    <?= amountFormat($details['balance']) ?>
+
+                                   <!--   cargue del valor estadico de la factura mensual-->
+
+                                    <h3><?php echo $this->lang->line('Rent payment') ?></h3>
+                                    <?= amountFormat($valor_menusualidad) ?>
                                     <hr>
                                     <h5><?php echo $this->lang->line('Balance Summary') ?></h5>
                                     <ul class="list-group list-group-flush">
@@ -285,8 +288,8 @@
                     <div class="col-md-8">
                         <div class="card card-block">
                             <h4>Detalles de Usuario</h4>
-                            <hr>
-                            <div class="row m-t-lg">
+                            
+                           <!-- <div class="row m-t-lg">
                                 <div class="col-md-2">
                                     <strong><?php echo $this->lang->line('') ?>Usuario Nº:</strong>
                                 </div>
@@ -294,7 +297,7 @@
                                     <?php echo $details['abonado'] ?> <strong>ID:</strong> <?php echo $details['id'] ?>
                                 </div>
 
-                            </div>
+                            </div>-->
                             <hr>
                             <div class="row m-t-lg">
                                 <div class="col-md-2">
@@ -318,7 +321,7 @@
 							<hr>
                             <div class="row m-t-lg">
                                 <div class="col-md-2">
-                                    <strong>Documento:</strong>
+                                    <strong>ID:</strong>
                                 </div>
                                 <div class="col-md-10">
                                     <?php echo $details['tipo_documento'] .". ". $details['documento'] ?>
@@ -348,7 +351,7 @@
                             <hr>
 							<div class="row m-t-lg">
                                 <div class="col-md-2">
-                                    <strong><?php echo $this->lang->line('') ?>Correo:</strong>
+                                    <strong><?php echo $this->lang->line('') ?>Email:</strong>
                                 </div>
                                 <div class="col-md-10">
                                     <?php echo $details['email'] ?>
