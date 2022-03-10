@@ -139,7 +139,7 @@
                                for="tipo_documento"><?php echo $this->lang->line('') ?>Tipo Dto</label></h6>
 							<div>
                             <select class="form-control"  id="mcustomer_country" name="tipo_documento">
-										<option value="CC">DNI</option>
+										<option value="DNI">DNI</option>
 										<option value="CE">CE</option>
 										<option value="NIT">NIT</option>
 										<option value="PAS">PAS</option>
