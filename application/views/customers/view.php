@@ -137,7 +137,7 @@
                                     <a href="<?php echo base_url('customers/changepassword?id=' . $details['id']) ?>" class="btn btn-danger btn-md">
 									<i class="icon-pencil"></i> <?php echo $this->lang->line('Change Password') ?>
                                     </a>
-                                </div>
+                                </div>-->
                                 
                                 <div class="col-md-12"><br>
                                     <h5><?php echo $this->lang->line('Change Customer Picture') ?></h5><input id="fileupload" type="file" name="files[]">
@@ -146,7 +146,7 @@
                                     <div class="progress-bar progress-bar-success"></div>
                                 </div>
                                 
-                            </div>-->
+                            </div>
                             
 
                                     
@@ -278,8 +278,8 @@
 								</div>
 								 The container for the uploaded files -->
 								<!--<table id="files2" class="files"></table>-->
-								<br> 
-                    </div> 
+								
+                     
                                 
                         
 						
@@ -447,7 +447,7 @@
                                     <strong><?php echo $this->lang->line('') ?>Direccion:</strong>
                                 </div>
                                 <div class="col-md-10">
-                                    <?php echo $details['nomenclatura']." ".$details['numero1'].$details['adicionauno']." N° ".$details['numero2'].$details['adicional2']." - ".$details['numero3'] ?>
+                                    <?php echo $details['numero1']." ".$details['nomenclatura']." - ".$details['adicionauno']."  ".$details['numero3'].$details['numero2']."  ".$details['adicional2'] ?>
                                 </div>
 
                             </div>

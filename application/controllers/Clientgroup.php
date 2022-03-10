@@ -726,12 +726,12 @@ class Clientgroup extends CI_Controller
             }
 
             $row[] = '<input '.$str_checked.' id="input_'.$customers->id.'" type="checkbox" name="x" class="clientes_para_enviar_sms" data-id-customer="'.$customers->id.'"  data-celular="'.$customers->celular.'" style="cursor:pointer; margin-left: 9px;" onclick="agregar_customer_envio_sms(this)" ></input>';    
-            $row[] = $no;
-			$row[] = $customers->abonado;
+            $row[] = $customers->referencia;
+			//$row[] = $customers->abonado;
 			$row[] = $customers->documento;
             $row[] = '<a href="' . $base . 'view?id=' . $customers->id . '">' . $customers->name .' '.$customers->unoapellido. ' </a>';
 			$row[] = $customers->celular;			
-            $row[] = $customers->nomenclatura . ' ' . $customers->numero1 . $customers->adicionauno.' Nº '.$customers->numero2.$customers->adicional2.' - '.$customers->numero3;
+            $row[] = $customers->numero1 . ' ' . $customers->nomenclatura . $customers->adicionauno.'  '.$customers->numero2.$customers->numero3.' - '.$customers->adicional2;
             $obj_barrio=$this->db->get_where("barrio",array("idBarrio"=>$customers->barrio))->row();
                             if(isset($obj_barrio)){
                                 

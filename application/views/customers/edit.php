@@ -220,7 +220,7 @@
                     	<div class="col-lg-2 mb-1">
 							<select class="form-control"  id="discountFormat" name="nomenclatura">
 									<option value="<?php echo $customer['nomenclatura'] ?>"><?php echo $customer['nomenclatura'] ?></option>
-									<option value="West"">West</option>
+									<option value="West">West</option>
 									<option value="Northwest">Northwest</option>
 									<option value="East">East</option>
 									

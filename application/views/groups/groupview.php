@@ -453,7 +453,7 @@
                 <tr >
                     <th><input type="checkbox" <?= ($cuenta!=0) ? 'checked':'' ?>  name="" style="cursor: pointer;" onclick="selet_all_customers(this)">&nbspSMS</th>
                     <th>N Apartamento</th>
-					<th>Abonado</th>
+					<!--<th>Abonado</th>-->
 					<th>ID</th>
                     <th><?php echo $this->lang->line('Name') ?></th>
 					<th>Celular</th>
@@ -474,8 +474,8 @@
                 <tfoot>
                 <tr >
                     <th>SMS</th>
-                    <th>#</th>
-					<th>Zid Codigo</th>
+                    <th><?php echo $this->lang->line('referencia') ?></th>
+					<!--<th>Zid Codigo</th>-->
 					<th>Cedula</th>
                     <th><?php echo $this->lang->line('Name') ?></th>
 					<th>Celular</th>
