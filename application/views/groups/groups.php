@@ -19,6 +19,7 @@
                 <tr>
                     <th>#</th>
                     <th><?php echo $this->lang->line('Name') ?></th>
+                    <th><?php echo $this->lang->line('Buildings') ?></th>
                     <th><?php echo $this->lang->line('Total Clients') ?></th>
 
                     <th><?php echo $this->lang->line('Action') ?></th>
@@ -31,11 +32,13 @@
                 foreach ($group as $row) {
                     $cid = $row['id'];
                     $title = $row['title'];
+                    $summary = $row['summary'];
                     $total = $row['pc'];
-
+                    $count=$this->db->query("select count(*) as cuenta from edificios_tb where id_corporacion=".$row['id'])->result_array()[0]['cuenta'];
                     echo "<tr>
                     <td>$i</td>
                     <td>$title</td>
+                    <td>$count</td>
                     <td>$total</td>
                     
                     <td><a href='" . base_url("clientgroup/groupview?id=$cid") . "' class='btn btn-success btn-xs'><i class='icon-file-text'></i>  " . $this->lang->line('View') . "</a>&nbsp;<a href='" . base_url("clientgroup/editgroup?id=$cid") . "' class='btn btn-warning btn-xs'><i class='icon-pencil'></i> " . $this->lang->line('Edit') . "</a>&nbsp;<a href='#' data-object-id='" . $cid . "' class='btn btn-danger btn-xs delete-object' title='Delete'><i class='icon-trash-o'></i></a></td></tr>";
@@ -47,6 +50,9 @@
                 <tr>
                     <th>#</th>
                     <th><?php echo $this->lang->line('Name') ?></th>
+
+                     <th><?php echo $this->lang->line('Buildings') ?></th>
+
                     <th><?php echo $this->lang->line('Total Clients') ?></th>
 
                     <th><?php echo $this->lang->line('Action') ?></th>

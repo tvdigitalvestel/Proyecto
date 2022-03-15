@@ -217,7 +217,7 @@
 						<select class="form-control"  id="discountFormat" name="nomenclatura">
 									<option value=""></option>
 									<option value="West">West</option>
-                                    <option value="Northwest">Northwest</option>
+                                    <option value="NW">NW</option>
                                     <option value="East">East</option>
                                     
 							</select>
@@ -228,6 +228,21 @@
                                    class="form-control margin-bottom" name="numero3" value="<?php echo $customer['numero3'] ?>" id="numero3">
                         </div>
                        
+                          <div class="col-sm-2 mb-1">
+                            <select class="col-sm-1 form-control" name="adicionaluno">
+                                    <option value="<?php echo $customer['adicionaluno'] ?>"><?php echo $customer['adicionaluno'] ?></option>
+                                    
+                                    <option value="th">th</option>
+                                    <option value="nd">nd</option>
+                                    
+                                    
+
+
+                            </select>
+
+                        </div>
+
+
                           <div class="col-sm-2 mb-1">
                             <select class="col-sm-1 form-control" name="adicional2">
                                     <option value="<?php echo $customer['adicional2'] ?>"><?php echo $customer['adicional2'] ?></option>
@@ -242,10 +257,8 @@
                             </select>
                         </div>
 
-                            <!--<div class="col-sm-2 mb-1">
-                            <input type="text" placeholder="Numero"
-                                   class="form-control margin-bottom" name="numero3" value="<?php echo $customer['numero3'] ?>" id="numero3">
-                        </div>-->
+                            
+                                        
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
@@ -271,10 +284,11 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <h6><label class="col-sm-10 col-form-label"
-                               for="customergroup"><?php echo $this->lang->line('') ?>Sede</label></h6>
-                        <div class="col-sm-12">
+                               for="customergroup"><?php echo $this->lang->line('') ?>Corporaciones</label></h6>
+                        <div class="col-sm-5">
                             <select id="customergroup" name="customergroup" class="form-control" onchange="cambia()" >
                                 <?php
                                 echo '<option value="' . $customergroup['id'] . '">' . $customergroup['title'] . '</option>';
@@ -285,10 +299,44 @@
                                 }
                                 ?>
                             </select>
-                        </div>
-                    </div>
-            
-						
+                            </div>
+                        <div class="form-group row">
+                        <div class="col-sm-6">
+                        <h6><label class="col-form-label"
+                               for="postbox"><?php echo $this->lang->line('') ?>Apartamento</label></h6>
+                            
+                            <select class="form-control"  id="discountFormat" name="numero2">
+                                <option value="<?php echo $customer['numero2'] ?>"><?php echo $customer['numero2'] ?></option>
+
+                                                          
+                                    <option value="85 West-6th Street">85 West-6th Street</option>
+                                    <option value="615 West-29th Street">615 West-29th Street</option>
+                                    <option value="1885 NW-18 Terrace">1885 NW-18 Terrace</option>
+
+                                    <option value="161 West-29 Street">161 West-29 Street</option>
+                                    <option value="482 E -24th Street">482 E -24th Street</option>
+                                    <option value="1029 Nw- 5 Street">1029 Nw- 5 Street</option>
+                                    <option value="1465 West-28th Street">1465 West-28th Street</option>
+                                    <option value="1764 West-42nd Place">1764 West-42nd Place</option>
+                                    <option value="1820-1822 NW-19th Avenue">1820-1822 NW-19th Avenue</option>
+                                    <option value="1824-1826 NW-19th Avenue">1824-1826 NW-19th Avenue</option>
+
+                                    <option value="715 West-15th Street">715 West-15th Street</option>
+
+                                    <option value="1607 NW 16th Avenue">1607 NW 16th Avenue</option>
+
+                                    <option value="3800 East-4 Avenue">3800 East-4 Avenue</option>
+
+                                    <option value="415 E -24th Street">415 E -24th Street</option>
+                                    
+                                    <option value="92 West-26th Street">92 West-26th Street</option>
+                                                     
+                                             
+                        </select>
+                     </div>
+                           </div>
+
+          					
                 
                 <!--boton de añadir cliente   ----------> 
 

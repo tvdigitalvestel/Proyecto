@@ -167,6 +167,10 @@
                                     <a class="nav-link" id="ingreso-tab" data-toggle="tab" href="#ingreso"
                                        aria-controls="ingreso"> Ingreso</a>
                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" id="edificios-tab" data-toggle="tab" href="#edificios"
+                                       aria-controls="edificios"> Edificios</a>
+                                </li>
                                <!-- <li class="nav-item">
                                     <a class="nav-link" id="thread-tab" data-toggle="tab" href="#activities"
                                        aria-controls="activities">Otro Filtro</a>
@@ -186,16 +190,14 @@
                                                 
                                               <div class="form-group">
                                                   <select id="estado_multiple" name="estado_multiple[]" class="form-control select-box" multiple="multiple">
-														<option value='Activo'>Activos </option>						 <option value='Retirado'>Inactivos</option>
+														<option value='Activo'>Activos </option>						 <option value='Inactivo'>Inactivos</option>
 														
                                                     </select>
                                               </div>
                                         </div>
+                                      </div>
                                     </div>
 
-
-
-                                </div>
                                 <div class="tab-pane fade" id="link" role="tabpanel" aria-labelledby="link-tab" aria-expanded="false">
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label"
@@ -413,6 +415,28 @@
                                                    data-toggle="datepicker" autocomplete="false">
                                         </div>
                                     </div>
+                                </div>
+
+                                 <div class="tab-pane fade" id="edificios" role="tabpanel" aria-labelledby="edificios-tab" aria-expanded="false">
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label"
+                                                   for="pay_cat">Edificios</label>
+
+                                            <div class="col-sm-6">
+                                                <select name="trans_type" class="form-control" id="sel_edificios">
+                                                    
+                                                    <?php echo '<option value="all">Todos</option>';
+                                                            foreach ($edificios_corporacion as $key => $value) {
+                                                                echo '<option value="'.$value['id'].'">'.$value['nombre_edificio'].'</option>';
+                                                            }
+
+                                                     ?>
+                                                    
+                                                </select>
+                                            </div>                              
+                                            
+                                        </div>
                                 </div>
                                 
                                 
@@ -1070,6 +1094,7 @@
             var localidad_multiple=$("#localidad_multiple").val();
             var barrios_multiple=$("#barrios_multiple").val();
             var deudores_multiple=$("#deudores_multiple").val();
+            var sel_edificio=$("#sel_edificios option:selected").val();
                 //color:blue;font-weight:900
             
             
@@ -1077,12 +1102,12 @@
 
              
             //if(morosos!=""){
-                if(columnasAgregadas){
-                    tb.ajax.url( baseurl+"clientgroup/load_morosos?id=<?=$_GET['id']?>&localidad="+localidad+"&nomenclatura="+nomenclatura+"&numero1="+numero1+"&adicionauno="+adicionauno+"&numero2="+numero2+"&adicional2="+adicional2+"&numero3="+numero3+"&direccion="+direccion+"&sel_servicios="+sel_servicios+"&ingreso_select="+ingreso_select+"&sdate="+sdate+"&edate="+edate+"&checked_ind_service="+checked_ind_service+"&check_usuarios_a_facturar="+check_usuarios_a_facturar+"&estados_multiple="+estados_multiple+"&localidad_multiple="+localidad_multiple+"&barrios_multiple="+barrios_multiple+"&deudores_multiple="+deudores_multiple).load();               
-                }else{
+                /*if(columnasAgregadas){*/
+                    tb.ajax.url( baseurl+"clientgroup/load_morosos?id=<?=$_GET['id']?>&localidad="+localidad+"&nomenclatura="+nomenclatura+"&numero1="+numero1+"&adicionauno="+adicionauno+"&numero2="+numero2+"&adicional2="+adicional2+"&numero3="+numero3+"&direccion="+direccion+"&sel_servicios="+sel_servicios+"&ingreso_select="+ingreso_select+"&sdate="+sdate+"&edate="+edate+"&checked_ind_service="+checked_ind_service+"&check_usuarios_a_facturar="+check_usuarios_a_facturar+"&estados_multiple="+estados_multiple+"&localidad_multiple="+localidad_multiple+"&barrios_multiple="+barrios_multiple+"&deudores_multiple="+deudores_multiple+"&sel_edificio="+sel_edificio).load();               
+                /*}else{
                     nuevas_columnas();
                     $("option[value=100]").text("Todo");
-                }
+                }*/
            /* }else{
                 tb.ajax.url( baseurl+'clientgroup/grouplist?estado='+estado+"&id=<?=$_GET['id']?>&localidad="+localidad+"&barrio="+barrio+"&nomenclatura="+nomenclatura+"&numero1="+numero1+"&adicionauno="+adicionauno+"&numero2="+numero2+"&adicional2="+adicional2+"&numero3="+numero3+"&direccion="+direccion+"&sel_servicios="+sel_servicios).load();         
             }*/

@@ -661,6 +661,7 @@ class Clientgroup extends CI_Controller
         $head['usernm'] = $this->aauth->get_user()->username;
         $id = $this->input->get('id');		
         $data['group'] = $this->clientgroup->details($id);
+        $this->load->model('customers_model', 'customers');
         $this->db->update("customers",array("checked_seleccionado"=>0),array("gid"=>$_GET['id']));
         $data['cuenta']=$this->clientgroup->get_numero_seleccionados($id);
         $head['title'] = 'Group View';
@@ -668,6 +669,8 @@ class Clientgroup extends CI_Controller
         //var_dump($array);
         $this->load->model('templates_model','templates');
         $data['plantillas'] = $this->templates->get_template();
+        $data['edificios_corporacion'] = $this->customers->get_edificios_corporacion($_GET['id']);     
+
         //var_dump($data['plantillas']);
         $this->load->view('fixed/header', $head);
         $this->load->view('groups/groupview', $data);
@@ -731,7 +734,7 @@ class Clientgroup extends CI_Controller
 			$row[] = $customers->documento;
             $row[] = '<a href="' . $base . 'view?id=' . $customers->id . '">' . $customers->name .' '.$customers->unoapellido. ' </a>';
 			$row[] = $customers->celular;			
-            $row[] = $customers->numero1 . ' ' . $customers->nomenclatura . $customers->adicionauno.'  '.$customers->numero2.$customers->numero3.' - '.$customers->adicional2;
+            $row[] = $customers->numero1 . ' ' . $customers->nomenclatura .' - '. $customers->adicionauno.'  '.$customers->numero2.$customers->numero3.'  '.$customers->adicional2;
             $obj_barrio=$this->db->get_where("barrio",array("idBarrio"=>$customers->barrio))->row();
                             if(isset($obj_barrio)){
                                 
@@ -812,12 +815,12 @@ class Clientgroup extends CI_Controller
                     }   
             }
 
-        $var_bool=false;
+       /* $var_bool=false;
                 $_GET['barrios_multiple']=str_replace("-", "", $_GET['barrios_multiple']);
-                 $multiplev=explode(",", $_GET['barrios_multiple']) ;
+                 $multiplev=explode(",", $_GET['barrios_multiple']) ;*/
 
                    
-        if (isset($_GET['direccion']) &&$_GET['direccion'] =="Personalizada"){
+       /* if (isset($_GET['direccion']) &&$_GET['direccion'] =="Personalizada"){
             if(isset($_GET['localidad_multiple'])){
                 $_GET['localidad_multiple']=str_replace("-", "", $_GET['localidad_multiple']);
                     
@@ -928,7 +931,7 @@ class Clientgroup extends CI_Controller
                         }
                         $condicionales.="  numero3 ='".$_GET['numero3']."' ";
             }
-        }
+        }*/
         if($this->input->post('search')['value']!=""){
 
                         if($condicionales!=""){
@@ -939,9 +942,29 @@ class Clientgroup extends CI_Controller
         if($condicionales==""){
             $query_consulta= str_replace("and", "", $query_consulta);    
         }
+
+        if($_GET['sel_edificio']!="all"){
+            $edificio=$this->db->get_where("edificios_tb",array("id"=>$_GET['sel_edificio'],"estado"=>"Activo"))->row();
+            //var_dump($edificio->nombre_edificio);
+            $nomenclatura="";
+            
+           $edificio->orientacion= mb_strtolower($edificio->orientacion, 'UTF-8');
+           $edificio->adicional2= mb_strtolower($edificio->adicional2, 'UTF-8');
+           //var_dump($edificio->orientacion);
+            if($edificio->orientacion=="west"){
+                $nomenclatura='"west","w"';
+            }else if($edificio->orientacion=="east" || $edificio->orientacion=="e"){
+                $nomenclatura='"east","e"';
+            }else if($edificio->orientacion=="nw" || $edificio->orientacion=="nort west"  || $edificio->orientacion=="nortwest"){
+                $nomenclatura='"nort west","nortwest","nw"';
+            }
+            $condicionales.=' and (numero1="'.$edificio->numero1.'" and lower(nomenclatura) in('.$nomenclatura.') and lower(numero3) in ("'.$edificio->numero2.'th","'.$edificio->numero2.'nd","'.$edificio->numero2.'")  and lower(adicional2)="'.$edificio->adicional2.'")';
+        }
+
         $query_consulta.=$condicionales;
       
         $query_consulta." order by id DESC";
+        //var_dump($query_consulta);
         
         $lista_customers=$this->db->query($query_consulta)->result();
         $filtro_deudores_multiple=explode(",", $_GET['deudores_multiple']) ;
@@ -1301,11 +1324,11 @@ class Clientgroup extends CI_Controller
                     }
                             $row[] = '<input '.$str_checked.' id="input_'.$customers->id.'" type="checkbox" name="x" class="clientes_para_enviar_sms" data-id-customer="'.$customers->id.'"  data-celular="'.$customers->celular.'" style="cursor:pointer; margin-left: 9px;" onclick="agregar_customer_envio_sms(this)" ></input>';    
                             $row[] = $no;
-                            $row[] = $customers->abonado;
+                            //$row[] = $customers->abonado;
                             $row[] = $customers->documento;
                             $row[] = '<a href="'.base_url().'customers/view?id=' . $customers->id . '">' . $customers->name .' '.$customers->unoapellido. ' </a>';
                             $row[] = $customers->celular;           
-                            $row[] = $customers->nomenclatura . ' ' . $customers->numero1 . $customers->adicionauno.' Nº '.$customers->numero2.$customers->adicional2.' - '.$customers->numero3;
+                            $row[] = $customers->numero1 . ' ' . $customers->nomenclatura .' - '. $customers->adicionauno.'  '.$customers->numero2.$customers->numero3.'  '.$customers->adicional2;
                             $obj_barrio=$this->db->get_where("barrio",array("idBarrio"=>$customers->barrio))->row();
                             if(isset($obj_barrio)){
                                 
@@ -1325,12 +1348,11 @@ class Clientgroup extends CI_Controller
                             }
                             $row[] = $suscripcion_str;
                             $row[] = '<span class="st-'.$customers->usu_estado. '">' .$customers->usu_estado. '</span>';
-                            $row[] = amountFormat($debe_customer);
-                            $row[] = amountFormat($valor_ultima_factura);
-                            $row[] = amountFormat($money['credit']-$money['debit']);
+                            //$row[] = amountFormat($debe_customer);
+                            //$row[] = amountFormat($valor_ultima_factura);
+                            //$row[] = amountFormat($money['credit']-$money['debit']);
                             //$row[]="0";
-                            $row[] = '&nbsp<a href="' . base_url() . 'llamadas/index?id=' . $customers->id . '" class="btn btn-primary btn-sm"><span class=" icon-mobile-phone"></span> Llamar</a>
-							&nbsp<a style="margin-top:1px;" target="_blanck" class="btn btn-info btn-sm"  href="'.base_url().'customers/invoices?id='.$customers->id.'"><span class="icon-eye"></span>&nbsp;Facturas</a>';
+                            $row[] = '<a href="' . base_url() . 'llamadas/index?id=' . $customers->id . '" class="btn btn-primary btn-sm"><span class=" icon-mobile-phone"></span> Llamar</a>';
                             if ($this->aauth->get_user()->roleid > 4) {
                             $row[] = '<a href="' . base_url() . 'customers/edit?id=' . $customers->id . '" class="btn btn-success btn-sm"><span class="icon-pencil"></span> '.$this->lang->line('Edit').'</a>
 							<a href="#" data-object-id="' . $customers->id . '" class="btn btn-danger btn-sm delete-object"><span class="icon-bin"></span></a>';

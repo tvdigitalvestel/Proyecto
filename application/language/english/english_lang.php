@@ -688,4 +688,5 @@ $lang['Execution']="Execution";
 $lang['Finished']="Finished";
 $lang['Edifice']="Edifice";
 $lang['Rent payment']="Rent payment";
+$lang['Buildings']="Buildings";
 

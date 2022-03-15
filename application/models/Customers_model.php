@@ -724,6 +724,9 @@ class Customers_model extends CI_Model
         $query = $this->db->query("SELECT c.*,p.pc FROM customers_group AS c LEFT JOIN ( SELECT gid,COUNT(gid) AS pc FROM customers GROUP BY gid) AS p ON p.gid=c.id");
         return $query->result_array();
     }
+    public function get_edificios_corporacion($id_corporacion){
+       return  $this->db->query("select * from edificios_tb where id_corporacion=".$id_corporacion)->result_array();
+    }
 	
 	public function departamentos_list()
     {

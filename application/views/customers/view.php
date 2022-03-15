@@ -91,9 +91,12 @@
                                 <div class="col-md-12">
 
                                    <!--   cargue del valor estadico de la factura mensual-->
-
-                                    <h3><?php echo $this->lang->line('Rent payment') ?></h3>
+                                    <b>
+                                    <h1><?php echo $this->lang->line('Rent payment') ?></h1>
+                                    <h2>
                                     <?= amountFormat($valor_menusualidad) ?>
+                                    </h2>
+                                    </b>
                                     <hr>
                                     <h5><?php echo $this->lang->line('Balance Summary') ?></h5>
                                     <ul class="list-group list-group-flush">
@@ -447,10 +450,23 @@
                                     <strong><?php echo $this->lang->line('') ?>Direccion:</strong>
                                 </div>
                                 <div class="col-md-10">
-                                    <?php echo $details['numero1']." ".$details['nomenclatura']." - ".$details['adicionauno']."  ".$details['numero3'].$details['numero2']."  ".$details['adicional2'] ?>
+                                    <?php echo $details['numero1']." ".$details['nomenclatura']." - ".$details['adicionauno']."  ".$details['numero3'].$details['']."  ".$details['adicional2'] ?>
+                            </div>
+                            </div>
+
+                            <div>
+                            <hr> 
+                            <div class="row m-t-lg">
+                                <div class="col-md-2">
+                                    <strong><?php echo $this->lang->line('') ?>Edificio:</strong>
+                                </div>
+                                <div class="col-md-10">
+                                    <?php echo $details['numero2'] ?>
                                 </div>
 
                             </div>
+                            </div>
+
                             <hr>
                             <div class="row m-t-lg">
                                 <div class="col-md-2">
