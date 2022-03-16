@@ -393,7 +393,7 @@ class Customers_model extends CI_Model
         }
     }
 
-    public function add($abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion)
+    public function add($abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion,$sl_Edificio)
     {
         if($tegnologia_instalacion==""){
             $tegnologia_instalacion=null;
@@ -434,7 +434,8 @@ class Customers_model extends CI_Model
 			'Iplocal' => $Iplocal,
 			'Ipremota' => $Ipremota,
 			'comentario' => $comentario,
-			'tegnologia_instalacion'=>$tegnologia_instalacion
+			'tegnologia_instalacion'=>$tegnologia_instalacion,
+            'edificio'=>$sl_Edificio
 			
         );
 
@@ -500,7 +501,7 @@ class Customers_model extends CI_Model
     }
 
 
-    public function edit($id, $abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion)
+    public function edit($id, $abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion,$sl_Edificio)
     {
         if($tegnologia_instalacion==""){
             $tegnologia_instalacion=null;
@@ -541,7 +542,8 @@ class Customers_model extends CI_Model
 			'Iplocal' => $Iplocal,
 			'Ipremota' => $Ipremota,
 			'comentario' => $comentario,
-            'tegnologia_instalacion'=>$tegnologia_instalacion
+            'tegnologia_instalacion'=>$tegnologia_instalacion,
+            'edificio'=>$sl_Edificio
         );
 
         if($data['name_s']=="" || $data['name_s']==null){

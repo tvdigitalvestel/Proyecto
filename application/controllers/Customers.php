@@ -770,7 +770,9 @@ if($data['servicios']['estado']=="Inactivo"){
         $username=$this->customers->obtener_comentario_mikrotik($this->input->post("username"),$this->input->post("customergroup"),$this->input->post("tegnologia_instalacion"));
         echo json_encode(array("comentario"=>$username));
     }
-
+public function consultar_edificios(){
+    echo json_encode($this->customers->get_edificios_corporacion($_POST['id']));     
+}
     public function addcustomer()
     {
 		$bill_due_date = datefordatabase($this->input->post('nacimiento'));
@@ -809,8 +811,9 @@ if($data['servicios']['estado']=="Inactivo"){
 		$Iplocal = $this->input->post('Iplocal');
 		$Ipremota = $this->input->post('Ipremota2');
 		$comentario = $this->input->post('comentario');
+        $sl_Edificio =$this->input->post('sl_Edificio');
         $tegnologia_instalacion = $this->input->post('tegnologia_instalacion');
-        $this->customers->add($abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion);
+        $this->customers->add($abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion,$sl_Edificio);
 
     }
 
@@ -853,9 +856,10 @@ if($data['servicios']['estado']=="Inactivo"){
 		$Iplocal = $this->input->post('Iplocal');
 		$Ipremota = $this->input->post('Ipremota');
 		$comentario = $this->input->post('comentario');
+        $sl_Edificio =$this->input->post('sl_Edificio');
         $tegnologia_instalacion = $this->input->post('tegnologia_instalacion');
         if ($id) {
-            $this->customers->edit($id, $abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion);
+            $this->customers->edit($id, $abonado, $name, $dosnombre, $unoapellido, $dosapellido, $company, $celular, $celular2, $email, $nacimiento, $tipo_cliente, $tipo_documento, $documento, $fcontrato, $estrato, $departamento, $ciudad, $localidad, $barrio, $nomenclatura, $numero1, $adicionauno, $numero2, $adicional2, $numero3, $residencia, $referencia, $customergroup, $name_s, $contra, $servicio, $perfil, $Iplocal, $Ipremota, $comentario,$tegnologia_instalacion,$sl_Edificio);
         }
    
     }

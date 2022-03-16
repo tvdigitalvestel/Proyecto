@@ -274,8 +274,8 @@
 									<option value="<?php echo $customer['residencia'] ?>"><?php echo $customer['residencia'] ?></option>
 									
 									<option value="Apartamento">Apartamento</option>
-									<option value="Edificio">Edificio</option>
-									<option value="Oficina">Oficina</option>
+								
+							         <option value="Oficina">Oficina</option>
 									
 							</select>
 							</div>
@@ -289,13 +289,14 @@
                         	</div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <h6><label class="col-sm-10 col-form-label"
-                               for="customergroup"><?php echo $this->lang->line('') ?>Sede</label></h6>
-                        <div class="col-sm-5">
-                            <select id="customergroup" name="customergroup" class="form-control" onchange="cambia()" >
+                     <div class="form-group row">
+                        <div class="col-sm-6">
+                            <h6><label class="col-form-label"
+                               for="localidad"><?php echo $this->lang->line('') ?>Corporaciones</label></h6>
+                            <div id="Corporaciones">
+                                <select id="customergroup" name="customergroup" class="form-control" onchange="cambia()" >
                                 <?php
-								echo '<option value="' . $customergroup['id'] . '">' . $customergroup['title'] . '</option>';
+                                
                                 foreach ($customergrouplist as $row) {
                                     $cid = $row['id'];
                                     $title = $row['title'];
@@ -303,50 +304,21 @@
                                 }
                                 ?>
                             </select>
+                            </div>
                         </div>
-                    
-
-
-                          <div class="form-group row">
                         <div class="col-sm-6">
-                        <h6><label class="col-form-label"
-                               for="postbox"><?php echo $this->lang->line('') ?>Apartamento</label></h6>
-                            
-                            <select class="form-control"  id="discountFormat" name="numero2">
-                                <option value="<?php echo $customer['numero2'] ?>"><?php echo $customer['numero2'] ?></option>
-
-                                                          
-                                    <option value="85 West-6th Street">85 West-6th Street</option>
-                                    <option value="615 West-29th Street">615 West-29th Street</option>
-                                    <option value="1885 NW-18 Terrace">1885 NW-18 Terrace</option>
-
-                                    <option value="161 West-29 Street">161 West-29 Street</option>
-                                    <option value="482 E -24th Street">482 E -24th Street</option>
-                                    <option value="1029 Nw- 5 Street">1029 Nw- 5 Street</option>
-                                    <option value="1465 West-28th Street">1465 West-28th Street</option>
-                                    <option value="1764 West-42nd Place">1764 West-42nd Place</option>
-                                    <option value="1820-1822 NW-19th Avenue">1820-1822 NW-19th Avenue</option>
-                                    <option value="1824-1826 NW-19th Avenue">1824-1826 NW-19th Avenue</option>
-
-                                    <option value="715 West-15th Street">715 West-15th Street</option>
-
-                                    <option value="1607 NW 16th Avenue">1607 NW 16th Avenue</option>
-
-                                    <option value="3800 East-4 Avenue">3800 East-4 Avenue</option>
-
-                                    <option value="415 E -24th Street">415 E -24th Street</option>
-                                    
-                                    <option value="92 West-26th Street">92 West-26th Street</option>
-                                                     
-                                             
-                        </select>
-                     </div>
-                           </div>
-                              </div>
-                              </div>
-
-
-
+                            <h6><label class="col-form-label"
+                               for="barrio"><?php echo $this->lang->line('') ?>Edificio</label></h6>
+                            <div id="barrios">
+                                 <select class="form-control"  id="sl_Edificio" name="sl_Edificio">
+                                        <option value="">-</option>
+                                        
+                                				
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                       
                 <!--ship-->
 
                 <!--<div class="col-md-6">
@@ -454,7 +426,7 @@
                     </div>
                 </div>-->
 
-            </div>
+            
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-4">
@@ -467,6 +439,7 @@
     </div>
 </article>
 <script type="text/javascript">
+
 	function traer_comentario_mikrotik(username){
 		var customergroup= $("#customergroup option:selected").val();
 		var tegnologia_instalacion= $("#tegnologia option:selected").val();
@@ -550,7 +523,7 @@ alert(selected);
 	var perfil_4 = new Array ("Seleccine...","3Megas","5Megas","5MegasD","10Megas","10MegasSt","15Megas","20Megas","20MegasSt","30Megas","30MegasSt","50Megas","80Megas","Cortados");
 							//crear funcion que ejecute el cambio
 							function cambia(){
-								var customergroup;
+								/*var customergroup;
 								customergroup = document.formulario1.customergroup[document.formulario1.customergroup.			selectedIndex].value;
 								//se verifica la seleccion dada
 								if(customergroup!=0){
@@ -612,9 +585,26 @@ alert(selected);
                                        // $("#Ipremota2").val(remote_ip_monterrey);
                                     }
                                 }
-                                selecciona_para_agregar();   
+                                selecciona_para_agregar();   */
+
+                                 var id_corporacion=$("#customergroup option:selected").val();
+                                $.post(baseurl+"customers/consultar_edificios",{id:id_corporacion},function(data){
+                                    var options='<option value="">-</option>';
+                                        
+                                        $(data).each(function(index,val){
+                                            options+='<option value="'+val.id+'">'+val.nombre_edificio+'</option>';
+                                        });
+                                        
+                                        $("#sl_Edificio").children().remove();
+                                        $("#sl_Edificio").html(options);
+$('#sl_Edificio option[value="<?=$customer['edificio']?>"]').attr("selected",true);
+                                        //sl_Edificio
+                                },'json');
 							}
 
+$('#customergroup option[value="<?=$customer['gid']?>"]').attr("selected",true);
+cambia();
+$('#sl_Edificio option[value="<?=$customer['edificio']?>"]').attr("selected",true);
 							$("#tegnologia").on("change",function(ev){
                                 /*var tegnologia_instalacion1=$("#tegnologia option:selected").val();
                                 var id_sede=$("#id_sede option:selected").val();
