@@ -450,7 +450,7 @@
                                     <strong><?php echo $this->lang->line('') ?>Direccion:</strong>
                                 </div>
                                 <div class="col-md-10">
-                                    <?php echo $details['numero1']." ".$details['nomenclatura']." - ".$details['adicionauno']."  ".$details['numero3'].$details['']."  ".$details['adicional2'] ?>
+                                    <?php echo $details['numero1']." ".$details['nomenclatura']." - ".$details['adicionauno']."  ".$details['numero3']."  ".$details['adicional2'] ?>
                             </div>
                             </div>
 
@@ -585,7 +585,7 @@
                                 </tr>
                                 </thead>
                                 <tbody id="activity">
-                                <?php foreach ($activity as $row) {
+                                <?php $i=0;foreach ($activity as $row) {
 									if ($row['tipos']=='Cambio Titular'){
                                     echo '<tr>
                             		<td>' . $row['fecha'] . '</td><td>' . $row['tipos'] . '</td><td>' . $row['nombres'].', '.$row['tdocumento'] .': '.$row['documento2'] . '</td><td>'. $row['colaborador'] . '</td>
