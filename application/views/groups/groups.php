@@ -5,14 +5,27 @@
 
             <div class="message"></div>
         </div>
-        <div class="grid_3 grid_4">
-            <h5 class="title">
+        <div class="grid_3 grid_4 table-responsive animated fadeInRight">
+         
+           <h5 class="title"><?php echo $this->lang->line('') ?>Administrar Corporaciones</h5>
+            
+            <a href='<?php echo base_url("clientgroup/create"); ?>' class='btn btn-cyan btn-xs'><i class='icon-pencil'></i> Nueva Corporacion</a>
+            <a href='<?php echo base_url("templates/edificios_add"); ?>' class='btn btn-cyan btn-xs'><i class='icon-pencil'></i> Nuevo edificio</a>
+            <a href='<?php echo base_url("templates/apartamento_add"); ?>' class='btn btn-cyan btn-xs'><i class='icon-pencil'></i>Nuevo Apartamento</a>
+            <!--<a href='<?php echo base_url("templates/barrio_add"); ?>' class='btn btn-cyan btn-xs'><i class='icon-pencil'></i> Nuevo Barrio</a>-->
+            <hr>
+            
+          <!-- <h5 class="title">
                 <?php echo $this->lang->line('Client Groups') ?> <a href="<?php echo base_url('clientgroup/create') ?>"
-                                                                    class="btn btn-primary btn-sm rounded">
+                     class="btn btn-primary btn-sm rounded">
                     <?php echo $this->lang->line('Add new') ?>
                 </a>
-            </h5>
+            </h5>-->
+
+
+
             <hr>
+
 
             <table id="cgrtable" class="display" cellspacing="0" width="100%">
                 <thead>

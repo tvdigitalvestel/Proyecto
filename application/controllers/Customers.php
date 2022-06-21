@@ -272,6 +272,21 @@ class Customers extends CI_Controller
 		
 		echo $lista_opciones; 
 	}
+//*para cargar los grupos *//
+public function edificios_list()
+    { 
+        $id = $this->input->post('id');
+        $edificios = $this->customers->edificios_list($id);
+        //echo '<select  id="cmbCiudades"  class="selectpicker form-control"><option>Seleccionar</option>';
+        $lista_opciones="<option value=''>Seleccionar</option>";
+        foreach ($edificios as $row) {
+            $lista_opciones.= '<option value="' . $row->id. '">' . $row->edificios . '</option>';
+        }
+        
+        echo $lista_opciones; 
+    }
+
+
 	
 	public function localidades_list()
 	{ 

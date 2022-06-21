@@ -10,7 +10,7 @@
 
                 <h5>Nueva Localizacion</h5>
                 <hr>
-                <input type="hidden" name="id" value="<?php echo $sms['id'] ?>">
+               
 				<div class="form-group row">
 
                     <label class="col-sm-2 col-form-label"

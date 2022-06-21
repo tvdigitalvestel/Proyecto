@@ -92,7 +92,7 @@
 							<input type="text" class="form-control required" placeholder="Billing Date" name="nacimiento" autocomplete="false" value="<?php echo $customer['nacimiento'] ?>" >
 							</div>
 						</div>
-                           <div class="col-sm-2">
+                           <!-- <div class="col-sm-2">
                             <h6><label class="col-form-label"
                                for="tipo_documento"><?php echo $this->lang->line('') ?>Tipo Dto</label></h6>
 							<div>
@@ -104,7 +104,7 @@
 									<option value="PAS">PAS</option>
 							</select>
                         	</div>
-                        </div>
+                        </div>-->
 
 						</div>
                        <!-- <div class="col-sm-2">

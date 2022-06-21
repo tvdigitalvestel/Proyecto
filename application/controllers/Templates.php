@@ -199,6 +199,15 @@ class Templates extends CI_Controller
             $this->templates->input_local($depar,$ciudad,$localidad);
 
     }
+    public function new_apartment()
+    {
+        
+            $customergroup = $this->input->post('customergroup');
+            $edificios = $this->input->post('edificios');
+            $localidad = $this->input->post('localidad');
+            $this->templates->new_apartment($customergroup,$edificios,$localidad);
+
+    }
 	public function ciudad_add()
     {
 		$this->load->model('customers_model', 'customers');
@@ -234,4 +243,53 @@ class Templates extends CI_Controller
             $this->templates->input_depar($depar);
 
     }
+//* nnuevo cambio de edificios*/
+
+  public function edificios_add()
+  {
+
+    $this->load->model('customers_model', 'customers');
+    $head['usernm'] = $this->aauth->get_user()->username;
+    $data['customergrouplist'] = $this->customers->edificios_list();
+    $head['title'] = 'agregar Edificios';
+    $this->load->view('fixed/header');
+    $this->load->view('templates/edificios_add',$data);
+    $this->load->view('fixed/footer');
+
+  }
+/////aádir edificio 
+
+  public function edificios_input()
+    {
+            $grupo = $this->input->post('customergroup');
+            $numero1 = $this->input->post('numero1');
+            $orientacion = $this->input->post('orientacion');
+            $numero2 = $this->input->post('numero2');
+            $adicionaluno = $this->input->post('adicionaluno');
+            $adicional2 = $this->input->post('adicional2');
+
+ $this->templates->input_edificios($grupo,$numero1,$orientacion,$numero2,$adicionaluno,$adicional2);
+    }
+
+
+ public function apartamento_add()
+  {
+
+   $this->load->model('customers_model', 'customers');
+   $head['usernm'] = $this->aauth->get_user()->username;
+   $data=array();
+   $data['customergrouplist'] = $this->customers->group_list();             
+   $head['title'] = 'agregar apartamento';
+    $this->load->view('fixed/header');
+    $this->load->view('templates/apartamento_add',$data);
+    $this->load->view('fixed/footer');
+
+  }
+public function apartamento_input()
+    {
+        
+            
+
+    }
+
 }

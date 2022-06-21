@@ -749,7 +749,7 @@
                                                 	<option value="Militar">Militar</option>
                                             </select>
                     </div>
-					<div class="col-sm-3">
+					 <!-- <div class="col-sm-3">
                         <select class="form-control" name="tipo_documento">
 													<option value="CC">CC</option>
                                                 	<option value="CE">CE</option>
@@ -757,7 +757,7 @@
                                                 	<option value="PAS">PAS</option>
                                             </select>
                     </div>			
-                </div>
+                </div>---> 
 				<div id="customerpanel" class="form-group row">
                     <label for="toBizName" class="caption col-sm-2 col-form-label">Documento</label>
                     <div class="col-sm-6">

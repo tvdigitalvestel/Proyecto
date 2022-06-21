@@ -753,6 +753,21 @@ class Customers_model extends CI_Model
         $query = $this->db->get();
         return $query->result(); 
     }
+
+
+    public function edificios_list()
+    {
+        $query = $this->db->query("SELECT * FROM customers_group ");
+        return $query->result_array();
+        
+    }
+public function apartamento_list()
+    {
+        $query = $this->db->query("SELECT * FROM apartamento ");
+        return $query->result_array();
+        
+    }
+    
 	public function group_ciudad($id)
     {
 

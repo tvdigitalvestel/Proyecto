@@ -1,3 +1,6 @@
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
 <style>
 .st-Activo, .st-Instalar , .st-Cortado, .st-Suspendido, .st-Exonerado
 {
@@ -134,7 +137,7 @@
 							</div>
 						</div>
                       
-                        <div class="col-sm-2">
+                       <!-- <div class="col-sm-2">
                             <h6><label class="col-form-label"
                                for="tipo_documento"><?php echo $this->lang->line('') ?>Tipo Dto</label></h6>
 							<div>
@@ -143,9 +146,9 @@
 										<option value="CE">CE</option>
 										<option value="NIT">NIT</option>
 										<option value="PAS">PAS</option>
-								</select>
+								</select>                                                                                                                                                                                                                                                                                                           
                         	</div>
-                       </div>
+                       </div>--->
                         <div class="col-sm-4">
                             <h6><label class="col-form-label"
                                for="documento"><?php echo $this->lang->line('') ?>Nº Documento</label></h6>
@@ -225,12 +228,12 @@
 
                        <div class="col-sm-2 mb-1">
                             <input type="text" placeholder="Numero"
-                                   class="form-control margin-bottom" name="numero3" value="<?php echo $customer['numero3'] ?>" id="numero3">
+                                   class="form-control margin-bottom" name="numero3" value="" id="numero3">
                         </div>
                        
                           <div class="col-sm-2 mb-1">
                             <select class="col-sm-1 form-control" name="adicionaluno">
-                                    <option value="<?php echo $customer['adicionaluno'] ?>"><?php echo $customer['adicionaluno'] ?></option>
+                                    <option value="">--</option>
                                     
                                     <option value="th">th</option>
                                     <option value="nd">nd</option>
@@ -245,7 +248,7 @@
 
                           <div class="col-sm-2 mb-1">
                             <select class="col-sm-1 form-control" name="adicional2">
-                                    <option value="<?php echo $customer['adicional2'] ?>"><?php echo $customer['adicional2'] ?></option>
+                                    <option value=""></option>
                                     
                                     <option value="th">th</option>
                                     <option value="Street">Street</option>
@@ -266,7 +269,7 @@
                                for="postbox"><?php echo $this->lang->line('') ?>Residencia</label></h6>
                             <div>
                             <select class="form-control"  id="discountFormat" name="residencia">
-                                    <option value="<?php echo $customer['residencia'] ?>"><?php echo $customer['residencia'] ?></option>
+                                    <option value="">--</option>
                                     
                                     <option value="Apartamento">Apartamento</option>
                                     <option value="Edificio">Edificio</option>
@@ -280,7 +283,7 @@
                                for="postbox"><?php echo $this->lang->line('') ?>Numero</label></h6>
                             <div>
                             <input type="text" placeholder="detalles de residencia"
-                                   class="form-control margin-bottom" name="referencia" value="<?php echo $customer['referencia'] ?>">
+                                   class="form-control margin-bottom" name="referencia" value="">
                             </div>
                         </div>
                     </div>
@@ -315,6 +318,15 @@
                         </div>
                     </div>
                 
+
+                <div class="col-md-6">
+                    <h5><?php echo $this->lang->line('') ?>Datos de Facturacion</h5>
+                    <div class="form-group row">
+                    <hr>
+
+                     
+
+
                 <!--boton de añadir cliente   ----------> 
 
             <div class="form-group row">
@@ -494,6 +506,15 @@ alert(selected);
 	var perfil_4 = new Array ("Seleccine...","3Megas","5Megas","5MegasD","10Megas","10MegasSt","15Megas","20Megas","20MegasSt","30Megas","30MegasSt","50Megas","80Megas","Cortados");
     var perfil_5 = new Array ("Seleccine...","3Megas","5Megas","5MegasD","10Megas","10MegasSt","15Megas","20Megas","20MegasSt","30Megas","30MegasSt","50Megas","80Megas","Cortados");
 
+
+
+
+    
+
+
+
+
+
 							//crear funcion que ejecute el cambio
 							function cambia(){
 							/*	var customergroup;
@@ -654,4 +675,13 @@ $(document).ready(function(){
 		})
 	})
 })	
+
+// script para la mascara de los numeros de celular, se debe agregar la libreria al principio de la pagina
+
 </script>
+<script type="text/javascript">
+    $("#mcustomer_phone").mask("(000) 000-0000");
+    $("#mcustomer_city").mask("(000) 000-0000");
+
+    
+     </script>

@@ -139,6 +139,24 @@ class Templates_model extends CI_Model
                 $this->lang->line('ERROR')));
         }
     }
+    public function new_apartment($customergroup,$edificios,$localidad)
+    {
+        $data = array(
+            'idGrupos' => $customergroup,
+            'idEdificios' => $edificios,
+            'Apartamentos' => $localidad
+        );
+
+        $this->db->set($data);
+
+        if ($this->db->insert('apartamento')) {
+            echo json_encode(array('status' => 'Success', 'message' =>
+                $this->lang->line('UPDATED')));
+        } else {
+            echo json_encode(array('status' => 'Error', 'message' =>
+                $this->lang->line('ERROR')));
+        }
+    }
 	public function input_ciudad($depar,$ciudad)
     {
         $data = array(
@@ -156,6 +174,34 @@ class Templates_model extends CI_Model
                 $this->lang->line('ERROR')));
         }
     }
+////** para lo de edificios **///
+
+public function input_edificios($grupo,$numero1,$orientacion,$numero2,$adicionaluno,$adicional2)
+    {
+        $data = array(
+            'id_corporacion' => $grupo, 
+            'numero1' => $numero1,
+            'orientacion' => $orientacion,
+            'numero2' => $numero2,
+            'adicional1' => $adicionaluno,
+            'adicional2' => $adicional2,
+
+            
+           );
+
+        $this->db->set($data);
+
+        if ($this->db->insert('edificios_tb')) {
+            echo json_encode(array('status' => 'Success', 'message' =>
+                $this->lang->line('UPDATED')));
+        } else {
+            echo json_encode(array('status' => 'Error', 'message' =>
+                $this->lang->line('ERROR')));
+        }
+    }
+
+
+
 	public function input_depar($depar)
     {
         $data = array(
