@@ -205,7 +205,11 @@ class Templates extends CI_Controller
             $customergroup = $this->input->post('customergroup');
             $edificios = $this->input->post('edificios');
             $localidad = $this->input->post('localidad');
-            $this->templates->new_apartment($customergroup,$edificios,$localidad);
+            $cuartos = $this->input->post('cuartos');
+            $banos = $this->input->post('banos');
+            $aire = $this->input->post('aire');
+            $pisos = $this->input->post('pisos');
+            $this->templates->new_apartment($customergroup,$edificios,$localidad,$cuartos,$banos,$aire,$pisos);
 
     }
 	public function ciudad_add()

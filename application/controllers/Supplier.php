@@ -68,6 +68,21 @@ class Supplier extends CI_Controller
         $this->load->view('supplier/view', $data);
         $this->load->view('fixed/footer');
     }
+        /////***********VISTA PARA el apartamento perfil ***************
+
+     public function perfilapartamento()
+    {
+        $custid = $this->input->get('id');
+       // $data['details'] = $this->supplier->details($custid);
+      //  $data['customergroup'] = $this->supplier->group_info($data['details']['gid']);
+      // $data['money'] = $this->supplier->money_details($custid);
+        $head['usernm'] = $this->aauth->get_user()->username;
+        $head['title'] = 'View Supplier';
+        $this->load->view('fixed/header', $head);
+        $this->load->view('groups/perfilapartamento');
+        $this->load->view('fixed/footer');
+    }
+
 
     public function load_list()
     {

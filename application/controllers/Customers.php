@@ -788,6 +788,12 @@ if($data['servicios']['estado']=="Inactivo"){
 public function consultar_edificios(){
     echo json_encode($this->customers->get_edificios_corporacion($_POST['id']));     
 }
+
+ public function consultar_apartamento(){
+    echo json_encode($this->customers->get_apartamento($_POST['id']));     
+}
+
+
     public function addcustomer()
     {
 		$bill_due_date = datefordatabase($this->input->post('nacimiento'));

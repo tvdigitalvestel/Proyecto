@@ -729,7 +729,20 @@ class Customers_model extends CI_Model
     public function get_edificios_corporacion($id_corporacion){
        return  $this->db->query("select * from edificios_tb where id_corporacion=".$id_corporacion)->result_array();
     }
+
+
+    public function get_apartamento($id_edificio){
+       return  $this->db->query("select * from apartamento where idEdificios=".$id_edificio)->result_array();
+    }
+
+
+
 	
+     public function get_edificio($nombre){
+       return  $this->db->query("select * from edificios_tb where nombre_edificio=".$nombre)->result_array();
+    }
+
+
 	public function departamentos_list()
     {
         $query = $this->db->query("SELECT idDepartamento,departamento FROM departamentos ");

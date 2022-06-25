@@ -247,6 +247,22 @@
                         <li>
                             <a href="<?php echo base_url(); ?>invoices/create"><?php echo $this->lang->line('New Invoice'); ?></a>
                         </li>
+
+             <!-- aqui se agrego provisionalmente -->
+
+                        <li>
+                            <a href="<?php echo base_url(); ?>clientgroup/vistaedificio"><?php echo $this->lang->line(''); ?>lista edificio</a>
+                        </li>
+                         <li>
+                            <a href="<?php echo base_url(); ?>clientgroup/vistaapartamento"><?php echo $this->lang->line(''); ?>lista apartamento</a>
+                        </li>
+                        
+                         <li>
+                            <a href="<?php echo base_url(); ?>clientgroup/perfilapartamento"><?php echo $this->lang->line(''); ?>Perfil apartamento</a>
+                        </li>
+
+                 <!-- fin -->
+
                         <li>
                             <a href="<?php echo base_url(); ?>invoices"><?php echo $this->lang->line('Manage Invoices'); ?></a>
                         </li>
@@ -896,12 +912,13 @@
                         
                     <i class="icon-arrow"></i></span></a>
                     <ul class="menu-content">
-                      <!-- <li>
+                       <li>
                             <a href="<?php echo base_url(); ?>invoices/apertura">Apertura</a>
-                        </li>-->
+                        </li>
                         <li>
                             <a href="<?php echo base_url(); ?>invoices/create"><?php echo $this->lang->line('New Invoice'); ?></a>
                         </li>
+                        
                         <li>
                             <a href="<?php echo base_url(); ?>invoices"><?php echo $this->lang->line('Manage Invoices'); ?></a>
                         </li>

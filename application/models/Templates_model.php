@@ -139,12 +139,16 @@ class Templates_model extends CI_Model
                 $this->lang->line('ERROR')));
         }
     }
-    public function new_apartment($customergroup,$edificios,$localidad)
+    public function new_apartment($customergroup,$edificios,$localidad,$cuartos,$banos,$aire,$pisos)
     {
         $data = array(
             'idGrupos' => $customergroup,
             'idEdificios' => $edificios,
-            'Apartamentos' => $localidad
+            'Apartamentos' => $localidad,
+            'cuartos' => $cuartos,
+            'banos' => $banos,
+            'aire' => $aire,
+            'pisos' => $pisos,
         );
 
         $this->db->set($data);

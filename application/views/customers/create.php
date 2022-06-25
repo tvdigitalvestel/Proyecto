@@ -263,34 +263,8 @@
                             
                                         
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-6">
-                        <h6><label class="col-form-label"
-                               for="postbox"><?php echo $this->lang->line('') ?>Residencia</label></h6>
-                            <div>
-                            <select class="form-control"  id="discountFormat" name="residencia">
-                                    <option value="">--</option>
-                                    
-                                    <option value="Apartamento">Apartamento</option>
-                                    <option value="Edificio">Edificio</option>
-                                    <option value="Oficina">Oficina</option>
-                                    
-                            </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <h6><label class="col-form-label"
-                               for="postbox"><?php echo $this->lang->line('') ?>Numero</label></h6>
-                            <div>
-                            <input type="text" placeholder="detalles de residencia"
-                                   class="form-control margin-bottom" name="referencia" value="">
-                            </div>
-                        </div>
-                    </div>
 
-                   
-
-                        <div class="form-group row">
+                     <div class="form-group row">
                         <div class="col-sm-6">
                             <h6><label class="col-form-label"
                                for="localidad"><?php echo $this->lang->line('') ?>Corporaciones</label></h6>
@@ -318,6 +292,33 @@
                         </div>
                     </div>
                 
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                        <h6><label class="col-form-label"
+                               for="postbox"><?php echo $this->lang->line('') ?>Residencia</label></h6>
+                            <div>
+                            <select class="form-control"  id="discountFormat" name="residencia">
+                                    <option value="">--</option>
+                                    
+                                    <option value="Apartamento">Apartamentos</option>
+                                    <option value="casa">Casas</option>
+                                    <option value="local">Local</option>
+                                    
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6><label class="col-form-label"
+                               for="postbox"><?php echo $this->lang->line('') ?>Numero apartamento</label></h6>
+                            <div>
+                            <select class="form-control"  id="sl_apartamento" name="sl_apartamento">
+                                        <option value="">-</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+              
 
                 <div class="col-md-6">
                     <h5><?php echo $this->lang->line('') ?>Datos de Facturacion</h5>
@@ -572,7 +573,24 @@ alert(selected);
 
                                         //sl_Edificio
                                 },'json');
-							}
+							
+
+                                var id_edificio=$("#sl_Edificio option:selected").val();
+                                $.post(baseurl+"customers/consultar_apartamento",{id:id_edificio},function(data){
+                                    var options='<option value="">-</option>';
+                                        
+                                        $(data).each(function(index,val){
+                                            options+='<option value="'+val.id+'">'+val.Apartamentos+'</option>';
+                                        });
+                                        
+                                        $("#sl_apartamento").children().remove();
+                                        $("#sl_apartamento").html(options);
+
+                                        //sl_Edificio
+                                },'json');
+                            
+                            }
+
                             $("#tegnologia").on("change",function(ev){
                                 /*var tegnologia_instalacion1=$("#tegnologia option:selected").val();
                                 var id_sede=$("#id_sede option:selected").val();

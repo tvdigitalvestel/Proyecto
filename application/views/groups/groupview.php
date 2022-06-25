@@ -427,8 +427,8 @@
                                                 <select name="trans_type" class="form-control" id="sel_edificios">
                                                     
                                                     <?php echo '<option value="all">Todos</option>';
-                                                            foreach ($edificios_corporacion as $key => $value) {
-                                                                echo '<option value="'.$value['id'].'">'.$value['nombre_edificio'].'</option>';
+                                                            foreach ($edificios_tb as $key => $value) {
+                                                                echo '<option value="'.$value['nombre_edificio'].'">'.$value['nombre_edificio'].'</option>';
                                                             }
 
                                                      ?>
@@ -471,49 +471,41 @@
 			<a href="#" onclick="redirect_to_export()" class="btn btn-success btn-md">Exportar a Excel .XLSX</a>
 <!-- <a href=""  class="btn btn-danger btn-md" onclick="abrir_modal_corte_usuarios(event)"><i
                         class="fa fa-envelope"></i>Cortar Usuarios</a>-->
+
             <hr>
-            <table id="fclientstable" class="table-striped" cellspacing="0" width="100%">
+            <table id="#fcliente" class="table-striped" cellspacing="0" width="100%">
                 <thead>
                 <tr >
-                    <th><input type="checkbox" <?= ($cuenta!=0) ? 'checked':'' ?>  name="" style="cursor: pointer;" onclick="selet_all_customers(this)">&nbspSMS</th>
-                    <th>N Apartamento</th>
-					<!--<th>Abonado</th>-->
-					<th>ID</th>
-                    <th><?php echo $this->lang->line('Name') ?></th>
-					<th>Celular</th>
-                    <th><?php echo $this->lang->line('Address') ?></th>
-                    <th>Zid Codigo</th>
-                   <!-- <th>Serv. Suscritos</th>-->
-					<th id="despues_de_thead">Estado</th>
-                    <th><?php echo $this->lang->line('Settings') ?></th>
-					<?php if ($this->aauth->get_user()->roleid > 4) { ?>
-					<th>Config</th>
-					<?php } ?>
+                
+                <th><?php echo $this->lang->line('') ?>Edificio</th> 
+                  
+
 
                 </tr>
                 </thead>
                 <tbody>
-                </tbody>
+                 <tr >
+                
+                    <th>Edificios </th>
 
-                <tfoot>
-                <tr >
-                    <th>SMS</th>
-                    <th><?php echo $this->lang->line('referencia') ?></th>
-					<!--<th>Zid Codigo</th>-->
-					<th>Cedula</th>
-                    <th><?php echo $this->lang->line('Name') ?></th>
-					<th>Celular</th>
-                    <th><?php echo $this->lang->line('Address') ?></th>
-                    <th>Barrio</th>
-                   <!-- <th>Serv. Suscritos</th>-->
-					<th id="despues_de_tfoot">Estado</th>
-                    <th><?php echo $this->lang->line('Settings') ?></th>
-					<?php if ($this->aauth->get_user()->roleid > 4) { ?>
-					<th>Config</th>
-					<?php } ?>
-                </tr>
-                </tfoot>
-            </table>
+                </tr >
+                </tbody>
+                 <?php $i = 1;
+                foreach ($edificios_tb as $row) {
+                  $depar = $row['nombre_edificio'];
+
+                  echo "<tr>
+                  <td>$i</td>
+                    <td>$depar</td>
+                       
+                   </tr> ";
+                 $i++;
+
+                }
+
+                 ?>
+
+              </table>
             
         </div>
         
@@ -630,6 +622,33 @@
 		
 
     });
+
+
+     var tb;
+    $(document).ready(function () {
+
+        tb=$('#fcliente').DataTable({
+
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+            "order": [], //Initial no order.
+
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": "<?php echo site_url('clientgroup/groupedificio')?>",
+                "type": "POST"
+            },
+
+            //Set column definition initialisation properties.
+            "columnDefs": [
+                {
+                    "targets": [0], //first column / numbering column
+                    "orderable": false, //set not orderable
+                },
+                
+            ],
+            )};  
+        });
 </script>
 <div id="delete_model" class="modal fade">
     <div class="modal-dialog">

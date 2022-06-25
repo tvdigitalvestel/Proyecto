@@ -689,4 +689,13 @@ $lang['Finished']="Finished";
 $lang['Edifice']="Edifice";
 $lang['Rent payment']="Rent payment";
 $lang['Buildings']="Buildings";
+$lang['Apartment Details']="Apartment Details";
+$lang['Landlord Name']="Landlord Name";
+$lang['Cell phone']="Cell phone";
+$lang['Number of rooms']="Number of rooms";
+$lang['Number of bathrooms']="Number of bathrooms";
+$lang['Air type']="Air type";
+$lang['Flat']="Flat";
+
+
 

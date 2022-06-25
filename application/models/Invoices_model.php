@@ -19,6 +19,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Invoices_model extends CI_Model
+
 {
     var $table = 'invoices';
     var $column_order = array(null, 'tid', 'name', 'invoicedate', 'total', 'status', null);
@@ -332,7 +333,9 @@ setlocale(LC_TIME, "spanish");
             }
         }
     }
+  
 
+  
 
     private function _get_datatables_query($opt = '')
     {

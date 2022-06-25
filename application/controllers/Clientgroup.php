@@ -31,11 +31,12 @@ class Clientgroup extends CI_Controller
         if (!$this->aauth->is_loggedin()) {
             redirect('/user/', 'refresh');
         }
-        if ($this->aauth->get_user()->roleid < 2) {
-
-            exit('<h3>Sorry! You have insufficient permissions to access this section</h3>');
-
+        if ($this->aauth->get_user()->roleid == 0) {
+            $this->limited = $this->aauth->get_user()->id;
+        } else {
+            $this->limited = '';
         }
+
     }
 
     //groups
@@ -56,6 +57,105 @@ class Clientgroup extends CI_Controller
         $this->load->view('groups/configuraciones',$data);
         $this->load->view('fixed/footer');
     }
+///para que cargue la vista de edificio *******************
+
+    public function vistaedificio(){
+        $head['usernm'] = $this->aauth->get_user()->username;   
+        $head['title'] = "Editar Variables apis";   
+        //$data['apis']=$this->db->get_where("variables_de_entorno")->result_array();
+        $this->load->view('fixed/header', $head);
+        $this->load->view('groups/vistaedificio');
+        $this->load->view('fixed/footer');
+    }
+
+     public function listaedificio(){
+        $list = $this->clientgroup->get_datatables($this->limited);
+
+        $data = array();
+
+        $no = $this->input->post('start');
+
+        foreach ($list as $invoices) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $invoices->nombre_edificio;
+            $row[] = '<a href="'.base_url().'customers/invoices?id='.$invoices->id.'" class="btn btn-info btn-sm"><span class="icon-eye"></span>  Ver</a> <a href="'.base_url().'invoices/view?id='.$invoices->id.'" class="btn btn-info btn-sm"><span class="icon-eye"></span> Eliminar</a>';
+            $data[] = $row;
+        }
+        
+     
+
+            $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->clientgroup->count_all($this->limited),
+            "recordsFiltered" => $this->clientgroup->count_filtered($this->limited),
+            "data" => $data,
+        );
+
+        //output to json format
+        echo json_encode($output);
+
+    }
+
+
+    ///PARA QUE CARGUE LA VISTA DE APARTAMENTO *******************
+
+    public function vistaapartamento(){
+        $head['usernm'] = $this->aauth->get_user()->username;   
+        $head['title'] = "Editar Variables apis";   
+        //$data['apis']=$this->db->get_where("variables_de_entorno")->result_array();
+        $this->load->view('fixed/header', $head);
+        $this->load->view('groups/vistaapartamento');
+        $this->load->view('fixed/footer');
+    }
+
+     public function listaapartamento(){
+        $list = $this->clientgroup->get_datatables1($this->limited);
+
+        $data = array();
+
+        $no = $this->input->post('start');
+
+        foreach ($list as $invoices) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $invoices->Apartamentos;
+            $row[] = '<a href="'.base_url().'customers/invoices?id='.$invoices->idApartamento.'" class="btn btn-info btn-sm"><span class="icon-eye"></span>  Ver</a> <a href="'.base_url().'invoices/view?id='.$invoices->idApartamento.'" class="btn btn-info btn-sm"><span class="icon-eye"></span> Eliminar</a>';
+            $data[] = $row;
+        }
+        
+     
+            $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->clientgroup->count_all1($this->limited),
+            "recordsFiltered" => $this->clientgroup->count_filtered1($this->limited),
+            "data" => $data,
+        );
+
+        //output to json format
+        echo json_encode($output);
+
+    }
+
+/////////////////*************************
+
+//////**************************
+     public function perfilapartamento()
+    {
+        $custid = $this->input->get('id');
+        $data['details'] = $this->clientgroup->details1(8);
+       // $data['customergroup'] = $this->supplier->group_info($data['details']['gid']);
+      //  $data['money'] = $this->supplier->money_details($custid);
+        $head['usernm'] = $this->aauth->get_user()->username;
+        $head['title'] = 'View Supplier';
+        $this->load->view('fixed/header', $head);
+        $this->load->view('groups/perfilapartamento',$data);
+        $this->load->view('fixed/footer');
+    }
+
+
     public function guardar_datos_api(){
         //var_dump();
         $data=array();
@@ -669,13 +769,19 @@ class Clientgroup extends CI_Controller
         //var_dump($array);
         $this->load->model('templates_model','templates');
         $data['plantillas'] = $this->templates->get_template();
-        $data['edificios_corporacion'] = $this->customers->get_edificios_corporacion($_GET['id']);     
+        $data['edificios_corporacion'] = $this->customers->get_edificios_corporacion($_GET['id']);  
 
         //var_dump($data['plantillas']);
         $this->load->view('fixed/header', $head);
         $this->load->view('groups/groupview', $data);
         $this->load->view('fixed/footer');
     }
+     
+     public function groupedificio()
+    {
+     
+     $data['edificios_corporacion'] = $this->customers->get_edificio($_GET['nombre_edificio']); 
+     }
 
     //datatable
     public function grouplist()

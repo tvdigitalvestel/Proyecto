@@ -41,6 +41,9 @@
                             </select>
                     </div>
                 </div>
+
+  
+
                 <div class="form-group row">
 
                     <label class="col-sm-2 col-form-label" for="body"><?php echo $this->lang->line('') ?>Apartamento</label>
@@ -50,6 +53,73 @@
                                class="form-control margin-bottom  required" name="localidad">
                     </div>
                 </div>
+
+
+                    <div class="form-group row">
+
+                     <label class="col-sm-2 col-form-label"
+                           for="amount">Cantidad Habitaciones</label>
+
+                    <div class="col-sm-6">
+
+                    <select name="cuartos" class="form-control"   >
+                       <option value="">--</option>  
+                    <?php for ($i=1;$i<=10;$i++){
+                    echo '<option value="'.$i.'">'.$i.'</option>';}?>
+                    </select>
+                    </div>
+                    </div>
+
+
+                   <div class="form-group row">
+
+                     <label class="col-sm-2 col-form-label"
+                           for="amount">Cantidad de Baños</label>
+
+                    <div class="col-sm-6">
+                    
+                    <select name="banos" class="form-control"   >
+                     <option value="">--</option>  
+                    <?php for ($i=1;$i<=10;$i++){
+                    echo '<option value="'.$i.'">'.$i.'</option>';}?>
+                    </select>
+                    </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                     <label class="col-sm-2 col-form-label"
+                           for="amount">Aire</label>
+
+                    <div class="col-sm-6">
+                    
+                    <select name="aire" class="form-control"   >
+                     <option value="">--</option> 
+                     <option value="Aire de pared">Aire de Pared</option> 
+                     <option value="Aire Central">Aire Central</option> 
+                     <option value="Aire de cajon">Aire de cajon</option>
+                     <option value="Aire minisplit">Aire minisplit</option>  
+
+                    
+                    </select>
+                    </div>
+                    </div>
+
+                     <div class="form-group row">
+
+                     <label class="col-sm-2 col-form-label"
+                           for="amount">Piso</label>
+
+                    <div class="col-sm-6">
+                    
+                    <select name="pisos" class="form-control"   >
+                     <option value="">--</option>  
+                    <?php for ($i=1;$i<=10;$i++){
+                    echo '<option value="'.$i.'">'.$i.'</option>';}?>
+                    </select>
+                    </div>
+                    </div>
+
 
                 <div class="form-group row">
 
